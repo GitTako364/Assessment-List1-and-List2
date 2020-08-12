@@ -28,8 +28,11 @@ __author__ = "???"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+    result = []
+    for num in nums:
+        if len(result) == 0 or num != result[-1]:
+            result.append(num)
+    return result
 
 
 # E. zip_merge
@@ -43,9 +46,9 @@ def remove_adjacent(nums):
 
 
 def zip_merge(list1, list2):
-    # your code here
-    return
-
+    ziplist= [(list1[i], list2[i])for i in range(0, len(list1))]
+    
+    return ziplist
 
 # F. empty_filter
 # Given a single list containing strings, empty strings, and
@@ -57,8 +60,9 @@ def zip_merge(list1, list2):
 
 
 def empty_filter(list1):
-    # your code here
-    return
+    while("" in list1):
+        list1.remove("")
+    return list1
 
 
 # G. linear_merge
@@ -73,8 +77,15 @@ def empty_filter(list1):
 
 
 def linear_merge(list1, list2):
-    # your code here
-    return
+    result = []
+    while len(list1) and len(list2):
+        if list1[0] < list2[0]:
+            result.append(list1.pop(0))
+        else:
+            result.append(list2.pop(0))
+    result.extend(list1)
+    result.extend(list2)
+    return result
 
 
 # Provided simple test() function used in main() to print
