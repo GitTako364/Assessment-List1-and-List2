@@ -50,6 +50,7 @@ def front_x(words):
     for word in words :
         if word.startswith('x'):
             index = words.index(word)
+            break
     return words[index:] + words[:index]
 
 
